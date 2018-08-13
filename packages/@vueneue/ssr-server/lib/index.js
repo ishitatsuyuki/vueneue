@@ -58,7 +58,9 @@ module.exports = async opts => {
     }
 
     // Serve static files
-    app.use(mount('/', serve(dist)));
+    app.use(mount('/', serve(dist, {
+      maxage: 31536000000
+    })));
   }
 
   // Main middleware: render routes
